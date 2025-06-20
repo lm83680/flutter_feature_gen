@@ -1,2 +1,2 @@
-# flutter_feature_gen
-A CLI tool to scaffold Clean Architecture features for Flutter.
+A sample command-line application with an entrypoint in `bin/`, library code
+in `lib/`, and example unit test in `test/`.
