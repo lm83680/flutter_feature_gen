@@ -90,4 +90,4 @@ cf workout_tracker
 
 ## 📄 License
 
-MIT License © 2025 [Your Name]
+MIT License © 2025 Jamal Sfenjeh
