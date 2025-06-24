@@ -6,7 +6,7 @@ void main(List<String> args) {
     exit(1);
   }
 
-  final rawName = args.first;
+  final rawName = args.join(' ');
   final featureName = _toSnakeCase(rawName);
   final className = _toPascalCase(featureName);
   final base = 'lib/features/$featureName';
@@ -31,13 +31,15 @@ void main(List<String> args) {
 
   // File templates
   final files = {
-    '$base/data/datasources/${featureName}_remote_datasource.dart': '''
+    '$base/data/datasources/${featureName}_remote_datasource.dart':
+        '''
 abstract class ${className}RemoteDataSource {
   Future<String> fetchData();
 }
 ''',
 
-    '$base/data/datasources/${featureName}_remote_datasource_impl.dart': '''
+    '$base/data/datasources/${featureName}_remote_datasource_impl.dart':
+        '''
 import '${featureName}_remote_datasource.dart';
 
 class ${className}RemoteDataSourceImpl implements ${className}RemoteDataSource {
@@ -49,13 +51,15 @@ class ${className}RemoteDataSourceImpl implements ${className}RemoteDataSource {
 }
 ''',
 
-    '$base/data/datasources/${featureName}_local_datasource.dart': '''
+    '$base/data/datasources/${featureName}_local_datasource.dart':
+        '''
 abstract class ${className}LocalDataSource {
   Future<String> fetchCachedData();
 }
 ''',
 
-    '$base/data/datasources/${featureName}_local_datasource_impl.dart': '''
+    '$base/data/datasources/${featureName}_local_datasource_impl.dart':
+        '''
 import '${featureName}_local_datasource.dart';
 
 class ${className}LocalDataSourceImpl implements ${className}LocalDataSource {
@@ -67,7 +71,8 @@ class ${className}LocalDataSourceImpl implements ${className}LocalDataSource {
 }
 ''',
 
-    '$base/data/models/${featureName}_model.dart': '''
+    '$base/data/models/${featureName}_model.dart':
+        '''
 class ${className}Model {
   final String id;
 
@@ -80,7 +85,8 @@ class ${className}Model {
 }
 ''',
 
-    '$base/data/repositories/${featureName}_repository_impl.dart': '''
+    '$base/data/repositories/${featureName}_repository_impl.dart':
+        '''
 import '../../domain/repositories/${featureName}_repository.dart';
 import '../datasources/${featureName}_remote_datasource.dart';
 
@@ -96,7 +102,8 @@ class ${className}RepositoryImpl implements ${className}Repository {
 }
 ''',
 
-    '$base/domain/entities/${featureName}_entity.dart': '''
+    '$base/domain/entities/${featureName}_entity.dart':
+        '''
 class ${className}Entity {
   final String id;
 
@@ -104,13 +111,15 @@ class ${className}Entity {
 }
 ''',
 
-    '$base/domain/repositories/${featureName}_repository.dart': '''
+    '$base/domain/repositories/${featureName}_repository.dart':
+        '''
 abstract class ${className}Repository {
   void fetchData();
 }
 ''',
 
-    '$base/domain/usecases/get_${featureName}_usecase.dart': '''
+    '$base/domain/usecases/get_${featureName}_usecase.dart':
+        '''
 import '../repositories/${featureName}_repository.dart';
 
 class Get${className}UseCase {
@@ -124,7 +133,8 @@ class Get${className}UseCase {
 }
 ''',
 
-    '$base/presentation/screens/${featureName}_screen.dart': '''
+    '$base/presentation/screens/${featureName}_screen.dart':
+        '''
 import 'package:flutter/material.dart';
 
 class ${className}Screen extends StatelessWidget {
@@ -140,7 +150,8 @@ class ${className}Screen extends StatelessWidget {
 }
 ''',
 
-    '$base/presentation/widgets/${featureName}_card.dart': '''
+    '$base/presentation/widgets/${featureName}_card.dart':
+        '''
 import 'package:flutter/material.dart';
 
 class ${className}Card extends StatelessWidget {
@@ -158,7 +169,7 @@ class ${className}Card extends StatelessWidget {
     );
   }
 }
-'''
+''',
   };
 
   for (final entry in files.entries) {
