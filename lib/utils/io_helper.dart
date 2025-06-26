@@ -3,15 +3,15 @@ import 'dart:io';
 Future<void> writeTest(String path, String content) async {
   final file = File('test/features/$path');
   final directory = file.parent;
-  bool log = false;
+  // bool log = false;
 
   if (!await directory.exists()) {
     await directory.create(recursive: true);
-    if (log) print('📁 Created directory: ${directory.path}');
+    // if (log) print('📁 Created directory: ${directory.path}');
   }
 
   await file.writeAsString(content);
-  if (log) print('✅ Created test: ${file.path}');
+  // if (log) print('✅ Created test: ${file.path}');
 }
 
 void runBuildRunner() {
