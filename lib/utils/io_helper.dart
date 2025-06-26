@@ -23,7 +23,7 @@ void runBuildRunner() {
       'build',
       '--delete-conflicting-outputs',
     ], runInShell: true);
-    stdout.write(result.stdout);
+    //stdout.write(result.stdout);
     stderr.write(result.stderr);
   } catch (e) {
     print('⚠️ Failed to run build_runner: $e');
