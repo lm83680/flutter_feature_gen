@@ -5,10 +5,7 @@ import 'dart:io';
 
 void main() async {
   // Simulating a CLI call (for example/testing purposes)
-  final result = await Process.run(
-    'flutter_feature_gen',
-    ['meal-plan'],
-  );
+  final result = await Process.run('flutter_feature_gen', ['meal-plan']);
 
   if (result.exitCode == 0) {
     print('✅ Feature generated successfully!');
