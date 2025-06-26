@@ -76,7 +76,7 @@ class PackageManager {
       devDependencies: [],
     ),
     'freezed': PackageInfo(
-      dependencies: ['freezed_annotation'],
+      dependencies: ['freezed_annotation','json_annotation'],
       devDependencies: ['freezed', 'build_runner','json_serializable'],
     ),
     'test': PackageInfo(
