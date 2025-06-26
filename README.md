@@ -147,7 +147,7 @@ test/features/your_feature/
 
 ## 📦 Dependencies
 
-The script automatically suggests required dependencies based on your choices:
+The script automatically adds the required dependencies based on your choices:
 
 ### Core Dependencies
 ```yaml
