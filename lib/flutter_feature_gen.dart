@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter_feature_gen/options.dart';
 import 'package:flutter_feature_gen/stmngt.dart';
 import 'package:flutter_feature_gen/tests.dart';
+import 'package:flutter_feature_gen/utils/io_helper.dart';
 import 'package:flutter_feature_gen/utils/source_template.dart';
 
 /// Entry point of the CLI tool.
@@ -39,7 +40,7 @@ class FeatureGenerator {
     _generateTests();
     _printSuccess();
     if (options.useFreezed) {
-      //runBuildRunner();
+      runBuildRunner();
     }
   }
 
